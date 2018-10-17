@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'bin/spark-submit src/count.py'
+                sh '/usr/spark-2.3.1/bin/spark-submit src/count.py'
             }
         }
     }
