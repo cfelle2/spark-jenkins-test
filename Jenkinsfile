@@ -4,11 +4,11 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'gettyimages:spark'
+                    image 'gettyimages/spark'
                 }
             }
             steps {
-                sh 'bin/spark-submit src/count.py' 
+                sh 'bin/spark-submit src/count.py'
             }
         }
     }
