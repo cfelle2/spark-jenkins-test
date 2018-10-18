@@ -12,6 +12,7 @@ pipeline {
             }
         }
         stage('S3Upload') {
+        steps {
         dir('/var/jenkins_home/workspace/sparktestbitbucket'){
 
         pwd(); //Log current directory
@@ -25,6 +26,7 @@ pipeline {
         }
 
     };
+    }
     }
 
         }
