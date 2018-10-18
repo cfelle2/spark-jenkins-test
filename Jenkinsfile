@@ -19,7 +19,7 @@ pipeline {
 
             // Upload files from working directory 'dist' in your project workspace
             s3Upload(bucket:"useast1-nlsn-mediaanalytics-emr/script/jenkinstest", workingDir:'src', includePathPattern:'**/*');
-        }
+        };
         }
         }
 
