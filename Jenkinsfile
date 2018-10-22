@@ -12,7 +12,7 @@ pipeline {
             }
         }
         stage('S3Upload') {
-            agent none
+            agent node
             steps {
                 dir('/var/jenkins_home/workspace/sparktestbitbucket'){
 
