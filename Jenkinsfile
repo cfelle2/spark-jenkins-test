@@ -1,19 +1,15 @@
-pipeline {
-    agent none
-    stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'gettyimages/spark'
-                }
-            }
-            steps {
-                sh '/usr/spark-2.3.1/bin/spark-submit src/count.py'
-            }
-        }
-    }
-}
 node {
+
+    stage('Checkout') {
+      git branch: 'master',
+    //  credentialsId: '12345-1234-4696-af25-123455',
+      url: 'https://github.com/cfelle2/spark-jenkins-test.git'
+    }
+    docker.image('gettyimages/spark').inside {
+      stage('Build') {
+        sh '/usr/spark-2.3.1/bin/spark-submit src/count.py'
+      }
+    }
     stage('Upload') {
 
           dir('/var/jenkins_home/workspace/sparktestbitbucket'){
@@ -24,11 +20,10 @@ node {
 
                   def identity=awsIdentity();//Log AWS credentials
 
-                  // Upload files from working directory 'src' in your project workspace
+                  // Upload files from working directory 'dist' in your project workspace
                   s3Upload(bucket:"useast1-nlsn-mediaanalytics-emr/script/jenkinstest", workingDir:'src', includePathPattern:'**/*');
             }
 
         };
     }
-
 }
