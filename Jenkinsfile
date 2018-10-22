@@ -1,15 +1,4 @@
 node {
-
-stage('Build') {
-    agent {
-        docker {
-            image 'gettyimages/spark'
-        }
-    }
-    steps {
-        sh '/usr/spark-2.3.1/bin/spark-submit src/count.py'
-    }
-}
     stage('Upload') {
 
           dir('/var/jenkins_home/workspace/sparktestbitbucket'){
@@ -20,7 +9,7 @@ stage('Build') {
 
                   def identity=awsIdentity();//Log AWS credentials
 
-                  // Upload files from working directory 'dist' in your project workspace
+                  // Upload files from working directory 'src' in your project workspace
                   s3Upload(bucket:"useast1-nlsn-mediaanalytics-emr/script/jenkinstest", workingDir:'src', includePathPattern:'**/*');
             }
 
