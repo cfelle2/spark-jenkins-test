@@ -6,7 +6,7 @@ node {
       url: 'https://github.com/cfelle2/spark-jenkins-test.git'
     }
     docker.image('gettyimages/spark').inside {
-      stage('Build') {
+      stage('UnitTests') {
         sh '/usr/spark-2.3.1/bin/spark-submit src/count.py'
       }
     }
