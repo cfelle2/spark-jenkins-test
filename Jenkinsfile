@@ -25,7 +25,7 @@ node {
 
                   print filelist.size()
                   for (String item : filelist) {
-                    print item.directory()
+                    print item.isDirectory()
                   }
                   s3Copy(fromBucket:'useast1-nlsn-mediaanalytics-emr', fromPath:'script/jenkinstest/count.py', toBucket:'useast1-nlsn-mediaanalytics-emr', toPath:'script/jenkinstest_temp/count.py')
                   // Upload files from working directory 'dist' in your project workspace
