@@ -1,5 +1,8 @@
 node {
-    def appname="script/jenkinstest"
+    def app_path="script/jenkinstest"
+    def bucket_name="useast1-nlsn-mediaanalytics-emr"
+    def bucket_path="useast1-nlsn-mediaanalytics-emr/script/jenkinstest"
+    def upload_path= + "/" + app_path
 
     stage('Checkout') {
       git branch: 'master',
@@ -23,9 +26,10 @@ node {
 
                   def identity=awsIdentity();//Log AWS credentials
 
-                  s3Delete(pathStyleAccessEnabled: true, bucket:'useast1-nlsn-mediaanalytics-emr', path:appname)
+                  //Delete the previous version
+                  s3Delete(pathStyleAccessEnabled: true, bucket:bucket_name, path:appname)
                   // Upload files from working directory 'dist' in your project workspace
-                  s3Upload(bucket:"useast1-nlsn-mediaanalytics-emr/script/jenkinstest", workingDir:'src', includePathPattern:'**/*');
+                  s3Upload(bucket:bucket_path, workingDir:'src', includePathPattern:'**/*');
             }
 
         };
