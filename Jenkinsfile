@@ -26,8 +26,8 @@ node {
 
                   def identity=awsIdentity();//Log AWS credentials
 
-                  //Delete the previous version
-                  //s3Delete(pathStyleAccessEnabled: true, bucket:bucket_name, path:appname)
+
+                  s3Delete(pathStyleAccessEnabled: true, bucket:bucket_name, path:appname)
                   // Upload files from working directory 'dist' in your project workspace
                   //s3Upload(bucket:bucket_path, workingDir:'src', includePathPattern:'**/*');
             }
