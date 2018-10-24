@@ -1,7 +1,8 @@
 node {
 
   def rootDir = pwd()
-  def config = load "${rootDir}@script/config.groovy"
+  println("Current Directory: " + rootDir)
+//  def config = load "${rootDir}@script/config.groovy"
 
   def bucket_name="useast1-nlsn-mediaanalytics-emr"
   def app_path="script/jenkinstest"
