@@ -1,6 +1,7 @@
 node {
-    def app_path="script/jenkinstest"
     def bucket_name="useast1-nlsn-mediaanalytics-emr"
+    def app_path="script/jenkinstest"
+    
     def delete_path= app_path + "/"
     def upload_path= bucket_name + "/" + app_path
 
@@ -29,7 +30,7 @@ node {
                   //Delete the previous version
                   s3Delete(pathStyleAccessEnabled: true, bucket:bucket_name, path:delete_path)
                   // Upload files from working directory 'dist' in your project workspace
-                  //s3Upload(bucket:upload_path, workingDir:'src', includePathPattern:'**/*');
+                  s3Upload(bucket:upload_path, workingDir:'src', includePathPattern:'**/*');
             }
 
         };
