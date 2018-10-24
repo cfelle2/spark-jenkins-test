@@ -22,6 +22,7 @@ node {
 
                   def identity=awsIdentity();//Log AWS credentials
                   def filelist=s3FindFiles(bucket:'useast1-nlsn-mediaanalytics-emr', path:'script/jenkinstest/', glob:'**/*')
+                  echo filelist
                   for (String item : filelist) {
                     echo item
                   }
