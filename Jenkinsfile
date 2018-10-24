@@ -9,7 +9,7 @@ node {
   def upload_path= bucket_name + "/" + app_path
 
 
-    def config = load 'config.groovy'
+    def config = load pwd() + '/config.groovy'
 
     stage('Checkout') {
       git branch: 'master',
@@ -24,7 +24,7 @@ node {
     }
     stage('Upload') {
 
-          print config.apppath
+          print config.getApppath()
 
           //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){
