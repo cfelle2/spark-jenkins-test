@@ -1,7 +1,6 @@
 node {
 
-  def rootDir = pwd()
-  def config = load 'config.groovy'
+  //def config = load 'config.groovy'
 
   def bucket_name="useast1-nlsn-mediaanalytics-emr"
   def app_path="script/jenkinstest"
@@ -9,7 +8,7 @@ node {
   def delete_path= app_path + "/"
   def upload_path= bucket_name + "/" + app_path
 
-    
+
 
     stage('Checkout') {
       git branch: 'master',
@@ -23,8 +22,8 @@ node {
       }
     }
     stage('Upload') {
-          print "Current Directory: " + rootDir
-          print "app_path=" + config.APP_PATH
+
+
           //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){
 
