@@ -9,7 +9,7 @@ node {
   def upload_path= bucket_name + "/" + app_path
 
 
-    def config = load pwd() + '/config.groovy'
+    def config = load 'config.groovy'
 
     stage('Checkout') {
       git branch: 'master',
