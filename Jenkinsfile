@@ -9,6 +9,11 @@ node {
   def upload_path= bucket_name + "/" + app_path
 
 
+  Properties properties = new Properties()
+  File propertiesFile = new File('config.properties')
+  propertiesFile.withInputStream {
+      properties.load(it)
+  }
 
     stage('Checkout') {
       git branch: 'master',
@@ -23,6 +28,7 @@ node {
     }
     stage('Upload') {
 
+          print properties.app_path  
 
           //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){
