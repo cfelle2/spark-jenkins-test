@@ -23,7 +23,7 @@ node {
                   def identity=awsIdentity();//Log AWS credentials
                   def filelist=s3FindFiles(bucket:'useast1-nlsn-mediaanalytics-emr', path:'script/jenkinstest/', glob:'**/*')
                   for (String item : filelist) {
-                    System.out.println(item)
+                    echo item
                   }
                   s3Copy(fromBucket:'useast1-nlsn-mediaanalytics-emr', fromPath:'script/jenkinstest/count.py', toBucket:'useast1-nlsn-mediaanalytics-emr', toPath:'script/jenkinstest_temp/count.py')
                   // Upload files from working directory 'dist' in your project workspace
