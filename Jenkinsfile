@@ -33,7 +33,7 @@ node {
                   //s3Copy(fromBucket:'useast1-nlsn-mediaanalytics-emr', fromPath:'script/jenkinstest', toBucket:'useast1-nlsn-mediaanalytics-emr', toPath:'script/jenkinstest_temp')
                   s3Delete(pathStyleAccessEnabled: true, bucket:'useast1-nlsn-mediaanalytics-emr', path:'script/jenkinstest')
                   // Upload files from working directory 'dist' in your project workspace
-                  s3Upload(bucket:"useast1-nlsn-mediaanalytics-emr/script/jenkinstest", workingDir:'src', includePathPattern:'**/*');
+                  //s3Upload(bucket:"useast1-nlsn-mediaanalytics-emr/script/jenkinstest", workingDir:'src', includePathPattern:'**/*');
             }
 
         };
