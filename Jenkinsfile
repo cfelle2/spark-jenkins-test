@@ -13,7 +13,7 @@ node {
     }
     stage('Upload') {
 
-          dir('/var/jenkins_home/workspace/sparktestbitbucket'){
+          dir('/var/jenkins_home/workspace/ "$WORKSPACE"'){
 
             pwd(); //Log current directory
 
