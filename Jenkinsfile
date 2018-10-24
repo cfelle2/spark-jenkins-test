@@ -22,6 +22,7 @@ node {
     }
     stage('Upload') {
           print "Current Directory: " + rootDir
+          print "app_path=" + config.app_path
           //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){
 
