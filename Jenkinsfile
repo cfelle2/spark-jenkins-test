@@ -13,7 +13,7 @@ node {
     }
     stage('Upload') {
 
-          dir('/var/jenkins_home/workspace/ "$WORKSPACE"'){
+          dir('/var/jenkins_home/workspace/${workspace}'){
 
             pwd(); //Log current directory
 
