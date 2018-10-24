@@ -9,6 +9,8 @@ node {
   def delete_path= app_path + "/"
   def upload_path= bucket_name + "/" + app_path
 
+    
+
     stage('Checkout') {
       git branch: 'master',
     //  credentialsId: '12345-1234-4696-af25-123455',

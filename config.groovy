@@ -6,15 +6,16 @@ def app_path="script/jenkinstest"
 def delete_path= app_path + "/"
 def upload_path= bucket_name + "/" + app_path
 */
-class Config {
-    // Groovy adds getDEFAULT and no setDEFAULT.
-    static final String APP_PATH = 'script/jenkinstest'
+import groovy.transform.Field
+@Field private First = null
 
-    // Groovy adds setMessage/getMessage
-    String message
-
-    // Groovy makes method public.
-    void message(final String newMessage) {
-        this.message = message
-    }
+def init(first) {
+    First = first
 }
+def test1(){
+    //add code for this method
+}
+def test2(){
+    First.test2()
+}
+return this
