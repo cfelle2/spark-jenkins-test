@@ -1,7 +1,7 @@
 node {
 
   def rootDir = pwd()
-  println("Current Directory: " + rootDir)
+  print "Current Directory: " + rootDir
 //  def config = load "${rootDir}@script/config.groovy"
 
   def bucket_name="useast1-nlsn-mediaanalytics-emr"
