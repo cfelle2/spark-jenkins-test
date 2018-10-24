@@ -1,7 +1,7 @@
 node {
 
   def rootDir = pwd()
-  print "Current Directory: " + rootDir
+
 //  def config = load "${rootDir}@script/config.groovy"
 
   def bucket_name="useast1-nlsn-mediaanalytics-emr"
@@ -22,7 +22,7 @@ node {
       }
     }
     stage('Upload') {
-
+          print "Current Directory: " + rootDir
           //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){
 
