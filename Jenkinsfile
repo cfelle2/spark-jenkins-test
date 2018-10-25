@@ -7,8 +7,10 @@ node {
 
       git branch: 'master',
     //  credentialsId: '12345-1234-4696-af25-123455',
-      //url: 'https://github.com/cfelle2/spark-jenkins-test.git'
       url: giturl
+    }
+    stage('Load Configuration') {
+      def config = load pwd() + '/config.groovy'
     }
     //docker inspect -f . gettyimages/spark Need to add this somewhere
     docker.image('gettyimages/spark').inside {
@@ -18,7 +20,7 @@ node {
     }
     stage('Upload') {
 
-        def config = load pwd() + '/config.groovy'
+
 
         print config.getBucketName()
         print config.getAppPath()
