@@ -1,23 +1,25 @@
 import groovy.transform.Field
 
 @Field private BucketName = "useast1-nlsn-mediaanalytics-emr"
-@Field private AppPath = "script/jenkinstest"
+@Field private AppDir = "jeninstest"
+//@Field private AppPath = "script/jenkinstest"
 
-def init(bucketname, apppath) {
+def init(bucketname, appdir) {
     BucketName = bucketname
-    AppPath = apppath
+    //AppPath = apppath
+    AppDir = appdir
 }
 def getBucketName(){
     return BucketName
 }
 def getAppPath(){
-    return AppPath
+    return  "script/" + AppDir
 }
 def getDeletePath(){
-    return AppPath + "/"
+    return getAppPath() + "/"
 }
 def getUploadPath(){
-    return BucketName + "/" + AppPath
+    return BucketName + "/" + getAppPath()
 }
 
 return this
