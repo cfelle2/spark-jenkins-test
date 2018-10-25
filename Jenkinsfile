@@ -3,7 +3,7 @@ node {
     def gitcredentialsId = '12345-1234-4696-af25-123455'
     def giturl = 'https://github.com/cfelle2/spark-jenkins-test.git'
     def gitbranch = 'master'
-    
+
     stage('Checkout') {
 
       git branch: gitbranch,
@@ -13,8 +13,6 @@ node {
 
     stage('Load Configuration') {
       config = load pwd() + '/config.groovy'
-      print getDeletePath()
-      print getUploadPath()
     }
 
     //docker inspect -f . gettyimages/spark Need to add this somewhere
