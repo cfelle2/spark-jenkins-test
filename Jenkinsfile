@@ -1,16 +1,8 @@
 node {
 
-  //def config = load 'config.groovy'
-
-  def bucket_name="useast1-nlsn-mediaanalytics-emr"
-  def app_path="script/jenkinstest"
-
-  def delete_path= app_path + "/"
-  def upload_path= bucket_name + "/" + app_path
-
-
-
-
+  def credentialIsd='12345-1234-4696-af25-123455'
+  def giturl='https://github.com/cfelle2/spark-jenkins-test.git'
+  
     stage('Checkout') {
 
       git branch: 'master',
