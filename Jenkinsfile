@@ -8,7 +8,7 @@ node {
   def delete_path= app_path + "/"
   def upload_path= bucket_name + "/" + app_path
 
-  def config = load pwd() + '/Config.groovy'
+  def config = load pwd() + '/config.groovy'
 
 
     stage('Checkout') {
