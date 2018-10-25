@@ -3,6 +3,8 @@ node {
     def gitcredentialsId = '12345-1234-4696-af25-123455'
     def giturl = 'https://github.com/cfelle2/spark-jenkins-test.git'
     def gitbranch = 'master'
+    def bucketname = "useast1-nlsn-mediaanalytics-emr"
+    def appdir = "jeninstest"
 
 
     def config = null
@@ -15,6 +17,7 @@ node {
 
     stage('Load Configuration') {
       config = load pwd() + '/JenkinsConfig/config.groovy'
+      config.init(bucketname, appdir)
     }
 
     //docker inspect -f . gettyimages/spark Need to add this somewhere
