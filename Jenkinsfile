@@ -26,9 +26,11 @@ node {
     stage('Upload') {
 
         def config = load pwd() + '/config.groovy'
-        
+
         print config.getBucketName()
         print config.getAppPath()
+        print config.getDeletePath()
+        print config.getUploadPath()
 
           //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){

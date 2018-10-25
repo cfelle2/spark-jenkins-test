@@ -13,4 +13,11 @@ def getBucketName(){
 def getAppPath(){
     return AppPath
 }
+def getDeletePath(){
+    return AppPath + "/"
+}
+def getUploadPath(){
+    return BucketName + "/" + AppPath
+}
+
 return this
