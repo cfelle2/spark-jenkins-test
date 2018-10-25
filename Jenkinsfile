@@ -8,10 +8,11 @@ node {
   def delete_path= app_path + "/"
   def upload_path= bucket_name + "/" + app_path
 
-
+  def first = load pwd() + '/First.groovy'
 
 
     stage('Checkout') {
+    first.test1()
       git branch: 'master',
     //  credentialsId: '12345-1234-4696-af25-123455',
       url: 'https://github.com/cfelle2/spark-jenkins-test.git'
