@@ -2,7 +2,7 @@ import groovy.transform.Field
 @Field private BucketName = null
 //@Field private AppPath = "script/jenkinstest"
 
-def init(bucketname, apppath) {
+def init(bucketname) {
     BucketName = bucketname
   //  AppPath = apppath
 }
