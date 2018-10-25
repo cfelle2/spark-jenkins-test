@@ -1,16 +1,14 @@
 import groovy.transform.Field
-@Field private BucketName = null
-//@Field private AppPath = "script/jenkinstest"
+@Field private First = null
 
-def init(bucketname) {
-    BucketName = bucketname
-  //  AppPath = apppath
+def init(first) {
+    First = first
 }
-def getBucketName(){
-    //return BucketName
-    return "useast1-nlsn-mediaanalytics-emr"
+def test1(){
+    //add code for this method
+    return "Hello"
 }
-//def getAppPath(){
-//    return AppPath
-//}
+def test2(){
+    First.test2()
+}
 return this

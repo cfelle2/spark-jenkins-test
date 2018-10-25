@@ -26,7 +26,7 @@ node {
     stage('Upload') {
 
 
-        print config.getBucketName()
+        print config.test1()
           //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){
 
