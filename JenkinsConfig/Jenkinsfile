@@ -14,7 +14,7 @@ node {
     }
 
     stage('Load Configuration') {
-      config = load pwd() + '/JenkinsConfiguration/config.groovy'
+      config = load pwd() + '/JenkinsConfig/config.groovy'
     }
 
     //docker inspect -f . gettyimages/spark Need to add this somewhere
