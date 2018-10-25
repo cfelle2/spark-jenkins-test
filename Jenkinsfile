@@ -12,7 +12,7 @@ node {
 
 
     stage('Checkout') {
-    first.test1()
+
       git branch: 'master',
     //  credentialsId: '12345-1234-4696-af25-123455',
       url: 'https://github.com/cfelle2/spark-jenkins-test.git'
@@ -26,7 +26,7 @@ node {
     stage('Upload') {
 
 
-
+        first.test1()
           //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){
 
