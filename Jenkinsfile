@@ -8,7 +8,7 @@ node {
   def delete_path= app_path + "/"
   def upload_path= bucket_name + "/" + app_path
 
-  //def first = load pwd() + '/first.groovy'
+  def first = load pwd() + 'First.groovy'
 
 
     stage('Checkout') {
@@ -26,7 +26,7 @@ node {
     stage('Upload') {
 
 
-        //first.test1()
+        print first.test1()
           //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){
 
