@@ -4,6 +4,8 @@ node {
     def giturl = 'https://github.com/cfelle2/spark-jenkins-test.git'
     def gitbranch = 'master'
 
+
+    def config = null
     stage('Checkout') {
 
       git branch: gitbranch,
