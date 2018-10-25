@@ -1,35 +1,29 @@
 node {
 
-  def config = null
+    def gitcredentialsId = '12345-1234-4696-af25-123455'
+    def giturl = 'https://github.com/cfelle2/spark-jenkins-test.git'
+    def gitbranch = 'master'
 
-  def gitcredentialsId='12345-1234-4696-af25-123455'
-  def giturl='https://github.com/cfelle2/spark-jenkins-test.git'
-
+    def config = null
     stage('Checkout') {
 
-      git branch: 'master',
+      git branch: gitbranch,
     //  credentialsId: '12345-1234-4696-af25-123455',
       url: giturl
     }
+
     stage('Load Configuration') {
       config = load pwd() + '/config.groovy'
     }
+
     //docker inspect -f . gettyimages/spark Need to add this somewhere
     docker.image('gettyimages/spark').inside {
       stage('UnitTests') {
         sh '/usr/spark-2.3.1/bin/spark-submit src/count.py'
       }
     }
+
     stage('Upload') {
-
-
-
-        print config.getBucketName()
-        print config.getAppPath()
-        print config.getDeletePath()
-        print config.getUploadPath()
-
-          //dir('/var/jenkins_home/workspace/${WORKSPACE}'){
           dir(''){
 
             pwd(); //Log current directory
