@@ -8,7 +8,7 @@ node {
   def delete_path= app_path + "/"
   def upload_path= bucket_name + "/" + app_path
 
-  def first = load pwd() + '/First.groovy'
+  def first = load pwd() + 'First.groovy'
 
 
     stage('Checkout') {
