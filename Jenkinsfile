@@ -1,19 +1,21 @@
+def BucketName = "useast1-nlsn-mediaanalytics-emr"
+def AppPath = "script/jenkinstest"
+def getDeletePath(){
+    return AppPath + "/"
+}
+def getUploadPath(){
+    return BucketName + "/" + AppPath
+}
 node {
 
     def gitcredentialsId = '12345-1234-4696-af25-123455'
     def giturl = 'https://github.com/cfelle2/spark-jenkins-test.git'
     def gitbranch = 'master'
-    def BucketName = "useast1-nlsn-mediaanalytics-emr"
-    def AppPath = "script/jenkinstest"
+
 
     def config = null
 
-    def getDeletePath(){
-        return AppPath + "/"
-    }
-    def getUploadPath(){
-        return BucketName + "/" + AppPath
-    }
+
     stage('Checkout') {
 
       git branch: gitbranch,
